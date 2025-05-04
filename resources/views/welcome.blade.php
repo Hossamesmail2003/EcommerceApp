@@ -12,24 +12,17 @@
         </div>
 
         <div class="row">
-            <div class="col-lg-4 col-md-6 text-center">
-                <div class="single-product-item">
-                    <div class="product-image">
-                        <a href="single-product.html"><img src="assets/img/products/product-img-1.jpg" alt=""></a>
+            @foreach ($categories as $item)
+                <div class="col-lg-4 col-md-6 text-center">
+                    <div class="single-product-item">
+                        <div class="product-image">
+                            <a href="/Product/{{$item->id}}">
+                                <img src="{{url($item->imagepath)}}" style="max-height: 250px; min-height: 250px" alt=""></a>
+                        </div>
+                        <h3>{{$item->name}}</h3>
                     </div>
-                    <h3>Strawberry</h3>
                 </div>
-            </div>
-
-                <div class="single-product-item">
-                    <div class="product-image">
-                        <a href="single-product.html"><img src="assets/img/products/product-img-3.jpg" alt=""></a>
-                    </div>
-                    <h3>Lemon</h3>
-                    <p class="product-price"><span>Per Kg</span> 35$ </p>
-                    <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </div>
