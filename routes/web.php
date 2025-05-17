@@ -27,5 +27,7 @@ Route::get('/Product/{catid?}', function ($catid = null) {
 });
 
 Route::get('/Category', function () {
-    return view('Category');
+    $categories= Category::all();
+    $products= Product::all();
+    return view('Category',['categories' => $categories,'products' => $products]);
 });
