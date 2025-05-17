@@ -2,10 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
+use App\Models\Category;
+use App\Models\Product;
+
 
 Route::get('/', function () {
 
-    $result= DB::table('categories')->get();
+    $result= Category::all();
 
 
     return view('welcome',['categories' => $result]);
@@ -14,11 +17,11 @@ Route::get('/', function () {
 
 Route::get('/Product/{catid?}', function ($catid = null) {
     if($catid == null){
-        $result= DB::table('Products')->get();
+        $result= Product::all();
         return view('Product',['products' => $result]);
     }
     else{
-        $result= DB::table('Products')->where('category_id',$catid)->get();
+        $result= Product::where('category_id',$catid)->get();
         return view('Product',['products' => $result]);
     }
 });
