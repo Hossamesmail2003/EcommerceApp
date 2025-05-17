@@ -2,32 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
-use App\Models\Category;
-use App\Models\Product;
+use App\Http\Controllers\MainController;
+use App\Http\Controllers\GetCategoryProductsController;
+use App\Http\Controllers\GetAllProductsByCategoriesController;
 
 
-Route::get('/', function () {
 
-    $result= Category::all();
-
-
-    return view('welcome',['categories' => $result]);
-});
-
-
-Route::get('/Product/{catid?}', function ($catid = null) {
-    if($catid == null){
-        $result= Product::all();
-        return view('Product',['products' => $result]);
-    }
-    else{
-        $result= Product::where('category_id',$catid)->get();
-        return view('Product',['products' => $result]);
-    }
-});
-
-Route::get('/Category', function () {
-    $categories= Category::all();
-    $products= Product::all();
-    return view('Category',['categories' => $categories,'products' => $products]);
-});
+Route::get('/',[MainController::class,'MainPage']);
+Route::get('/Product/{catid?}', [GetCategoryProductsController::class, 'GetCategoryProducts']);
+Route::get('/Category', [GetAllProductsByCategoriesController::class, 'GetAllProductsByCategories']);
