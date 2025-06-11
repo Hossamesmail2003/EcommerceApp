@@ -24,6 +24,14 @@
                             <h3>{{$item->name}}</h3>
                             <p class="product-price"><span>{{$item->quantity}}</span> {{$item->price}}$ </p>
                             <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+							<form action="/DeleteProduct/{{$item->id}}" method="POST" style="display:inline;">
+								@csrf
+								@method('DELETE')
+								<button type="submit" class="cart-btn" style="border:none; background:none; padding:0;">
+									<i class="fas fa-trash"></i> Delete
+								</button>
+							</form>
+							<a href="/EditProduct/{{$item->id}}" class="cart-btn"><i class="fas fa-edit"></i> Edit</a>
                         </div>
                     </div>
                 @endforeach
