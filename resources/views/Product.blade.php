@@ -19,7 +19,7 @@
                     <div class="col-lg-4 col-md-6 text-center">
                         <div class="single-product-item">
                             <div class="product-image">
-                                <a href="single-product.html"><img src="{{url($item->imagepath)}}" style="max-height: 250px; min-height: 250px" alt=""></a>
+                                <a href="single-product.html"><img src="{{asset($item->imagepath)}}" style="max-height: 250px; min-height: 250px" alt=""></a>
                             </div>
                             <h3>{{$item->name}}</h3>
                             <p class="product-price"><span>{{$item->quantity}}</span> {{$item->price}}$ </p>

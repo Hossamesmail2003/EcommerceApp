@@ -21,7 +21,7 @@
                                 </div>
                                 <div id="form_status"></div>
                                 <div class="contact-form">
-                                    <form type="POST" method="POST" action="/UpdateProduct/{{$product->id}}" id="fruitkha-contact">
+                                    <form type="POST" method="POST" action="/UpdateProduct/{{$product->id}}" id="fruitkha-contact" enctype="multipart/form-data">
                                         @csrf
                                         @method('PUT')
                                         <p>
@@ -64,6 +64,13 @@
                                             </select>
                                             <span>
                                                 @error('category')
+                                                    <strong>{{ $message }}</strong>
+                                                @enderror
+                                            </span>
+                                        <p>
+                                            <input class="form-control" type="file" name="image" id="image" value="{{$product->imagepath}}">
+                                            <span>
+                                                @error('image')
                                                     <strong>{{ $message }}</strong>
                                                 @enderror
                                             </span>

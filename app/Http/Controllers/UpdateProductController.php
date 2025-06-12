@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
+use Illuminate\Support\Str;
 
 class UpdateProductController extends Controller
 {
@@ -18,6 +19,12 @@ class UpdateProductController extends Controller
                 $product->quantity = $request->quantity;
                 $product->description = $request->description;
                 $product->category_id = $request->category_id;
+
+                // Handle image upload with UUID
+                $path = $request -> image -> move('uploads',str::uuid() -> tostring() . '-' . $request->image->getClientOriginalExtension());
+                $product->imagepath = $path;
+
+
                 $product->save();
 
                 return redirect('/Product')->with('success', 'Product updated successfully');
