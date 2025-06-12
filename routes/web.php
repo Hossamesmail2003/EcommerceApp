@@ -12,6 +12,7 @@ use App\Http\Controllers\EditProductController;
 use App\Http\Controllers\UpdateProductController;
 use App\Http\Controllers\GetReviewsController;
 use App\Http\Controllers\StoreReviewsController;
+use App\Http\Controllers\SearchController;
 
 
 Route::get('/',[MainController::class,'MainPage']);
@@ -22,6 +23,7 @@ Route::put('/UpdateProduct/{productid?}', [UpdateProductController::class, 'upda
 Route::get('/Category', [GetAllProductsByCategoriesController::class, 'GetAllProductsByCategories']);
 Route::get('/Reviews', [GetReviewsController::class, 'get_reviews']);
 Route::post('/StoreReview', [StoreReviewsController::class, 'store_reviws']);
+Route::post('/Search', [SearchController::class, 'search']);
 
 Route::get('/AddProduct', [GetAddProductController::class, 'GetAddProduct']);
 Route::post('/StoreProduct', [AddProductController::class, 'AddProduct']);
