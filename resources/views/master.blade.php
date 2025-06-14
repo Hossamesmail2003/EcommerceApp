@@ -78,6 +78,43 @@
 										<li><a href="shop.html">Shop</a></li>
 									</ul>
 								</li>
+
+
+								<!-- Authentication Links -->
+								@guest
+									@if (Route::has('login'))
+										<li>
+											<a  href="{{ route('login') }}">{{ __('Login') }}</a>
+										</li>
+									@endif
+
+									@if (Route::has('register'))
+										<li>
+											<a  href="{{ route('register') }}">{{ __('Register') }}</a>
+										</li>
+									@endif
+								@else
+									<li>
+										<a href="#">
+											{{ Auth::user()->name }}
+										</a>
+										<li>
+											<a  href="{{ route('logout') }}"
+											onclick="event.preventDefault();
+															document.getElementById('logout-form').submit();">
+												{{ __('Logout') }}
+											</a>
+										</li>
+
+											<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+												@csrf
+											</form>
+									</li>
+								@endguest
+
+
+
+
 								<li>
 									<div class="header-icons">
 										<a class="shopping-cart" href="cart.html"><i class="fas fa-shopping-cart"></i></a>

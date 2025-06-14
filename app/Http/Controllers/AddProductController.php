@@ -5,11 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use Illuminate\Support\Str;
-
+use Illuminate\Support\Facades\Auth;
 class AddProductController extends Controller
 {
     public function AddProduct(Request $request)
     {
+        if (Auth::check()){
+
+
         // Validate the incoming request data
         $request->validate([
             'name' => 'required|unique:Products|string|max:100',
@@ -34,5 +37,8 @@ class AddProductController extends Controller
         $newproduct->save();
 
         return redirect('/');
+        }else{
+            return redirect('/login')->with('error', 'You must be logged in to add a product.');
+        }
     }
 }

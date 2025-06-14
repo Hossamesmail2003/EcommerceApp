@@ -32,8 +32,8 @@ Route::get('/Reviews', [GetReviewsController::class, 'get_reviews']);
 Route::post('/StoreReview', [StoreReviewsController::class, 'store_reviws']);
 Route::post('/Search', [SearchController::class, 'search']);
 
-Route::get('/AddProduct', [GetAddProductController::class, 'GetAddProduct']);
-Route::post('/StoreProduct', [AddProductController::class, 'AddProduct']);
+Route::get('/AddProduct', [GetAddProductController::class, 'GetAddProduct'])->middleware('auth');
+Route::post('/StoreProduct', [AddProductController::class, 'AddProduct'])->middleware('auth');
 
 
 
