@@ -13,6 +13,13 @@ use App\Http\Controllers\UpdateProductController;
 use App\Http\Controllers\GetReviewsController;
 use App\Http\Controllers\StoreReviewsController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\HomeController;
+
+
+
+Auth::routes();
+
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 
 Route::get('/',[MainController::class,'MainPage']);
@@ -27,3 +34,9 @@ Route::post('/Search', [SearchController::class, 'search']);
 
 Route::get('/AddProduct', [GetAddProductController::class, 'GetAddProduct']);
 Route::post('/StoreProduct', [AddProductController::class, 'AddProduct']);
+
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
