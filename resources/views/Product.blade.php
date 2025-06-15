@@ -35,6 +35,11 @@
                         </div>
                     </div>
                 @endforeach
+				<div class="col-lg-12">
+					<div class="pagination">
+						{{ $products->links() }}
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

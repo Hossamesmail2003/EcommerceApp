@@ -8,7 +8,7 @@ class GetCategoryProductsController extends Controller
 {
     public function GetCategoryProducts($catid = null) {
     if($catid == null){
-        $result= Product::all();
+        $result= Product::paginate(10);
         return view('Product',['products' => $result]);
     }
     else{
