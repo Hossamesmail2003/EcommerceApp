@@ -8,7 +8,7 @@ class SearchController extends Controller
 {
     public function search(Request $request)
     {
-        $products= Product::where('name','LIKE',"%{$request-> searchkey}%") ->get();
+        $products= Product::where('name','LIKE',"%{$request-> searchkey}%") ->paginate(10);
 
         return view('Product', ['products' => $products]);
     }

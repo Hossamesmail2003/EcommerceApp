@@ -14,6 +14,8 @@ use App\Http\Controllers\GetReviewsController;
 use App\Http\Controllers\StoreReviewsController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductsTableController;
+
 
 
 
@@ -29,6 +31,7 @@ Route::get('/EditProduct/{productid?}', [EditProductController::class, 'editprod
 Route::put('/UpdateProduct/{productid?}', [UpdateProductController::class, 'updateproduct']);
 Route::get('/Category', [GetAllProductsByCategoriesController::class, 'GetAllProductsByCategories']);
 Route::get('/Reviews', [GetReviewsController::class, 'get_reviews']);
+Route::get('/ProductsTable', [ProductsTableController::class, 'productstable']);
 Route::post('/StoreReview', [StoreReviewsController::class, 'store_reviws']);
 Route::post('/Search', [SearchController::class, 'search']);
 
