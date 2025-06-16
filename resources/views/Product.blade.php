@@ -23,7 +23,10 @@
                             </div>
                             <h3>{{$item->name}}</h3>
                             <p class="product-price"><span>{{$item->quantity}}</span> {{$item->price}}$ </p>
-                            <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+							<form action="/Cart/{{$item->id}}" method="POST">
+								@csrf
+								<button type="submit" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+							</form>
 							<form action="/DeleteProduct/{{$item->id}}" method="POST" style="display:inline;">
 								@csrf
 								@method('DELETE')

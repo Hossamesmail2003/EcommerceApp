@@ -15,6 +15,8 @@ use App\Http\Controllers\StoreReviewsController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductsTableController;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\GetCartController;
 
 
 
@@ -38,7 +40,8 @@ Route::post('/Search', [SearchController::class, 'search']);
 Route::get('/AddProduct', [GetAddProductController::class, 'GetAddProduct'])->middleware('auth');
 Route::post('/StoreProduct', [AddProductController::class, 'AddProduct'])->middleware('auth');
 
-
+Route::post('/Cart/{productid?}', [CartController::class, 'cart'])->middleware('auth');
+Route::get('/GetCart', [GetCartController::class, 'get_cart'])->middleware('auth');
 
 Auth::routes();
 
