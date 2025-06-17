@@ -17,6 +17,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductsTableController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\GetCartController;
+use App\Http\Controllers\ProductPhotosController;
+use App\Http\Controllers\StoreProductPhotosController;
 
 
 
@@ -42,6 +44,8 @@ Route::post('/StoreProduct', [AddProductController::class, 'AddProduct'])->middl
 
 Route::post('/Cart/{productid?}', [CartController::class, 'cart'])->middleware('auth');
 Route::get('/GetCart', [GetCartController::class, 'get_cart'])->middleware('auth');
+Route::get('/Addproductphotos/{productid?}', [ProductPhotosController::class, 'get_product_photos']);
+Route::post('/storeproductimages/{productid?}', [StoreProductPhotosController::class, 'store_product_photos']);
 
 Auth::routes();
 
