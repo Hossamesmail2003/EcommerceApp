@@ -19,6 +19,8 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\GetCartController;
 use App\Http\Controllers\ProductPhotosController;
 use App\Http\Controllers\StoreProductPhotosController;
+use App\Http\Controllers\GetCompleteOrderController;
+use App\Http\Controllers\StoreOrderController;
 
 
 
@@ -36,6 +38,8 @@ Route::put('/UpdateProduct/{productid?}', [UpdateProductController::class, 'upda
 Route::get('/Category', [GetAllProductsByCategoriesController::class, 'GetAllProductsByCategories']);
 Route::get('/Reviews', [GetReviewsController::class, 'get_reviews']);
 Route::get('/ProductsTable', [ProductsTableController::class, 'productstable']);
+Route::get('/CompleteOrder', [GetCompleteOrderController::class, 'get_complete_order']);
+Route::post('/StoreOrder', [StoreOrderController::class, 'storeorder']);
 Route::post('/StoreReview', [StoreReviewsController::class, 'store_reviws']);
 Route::post('/Search', [SearchController::class, 'search']);
 
