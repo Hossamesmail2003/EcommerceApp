@@ -21,6 +21,7 @@ use App\Http\Controllers\ProductPhotosController;
 use App\Http\Controllers\StoreProductPhotosController;
 use App\Http\Controllers\GetCompleteOrderController;
 use App\Http\Controllers\StoreOrderController;
+use App\Http\Controllers\MainAdminController;
 
 
 
@@ -54,3 +55,13 @@ Route::post('/storeproductimages/{productid?}', [StoreProductPhotosController::c
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+
+
+/*
+Admins permisions and routes
+
+*/
+
+Route::get('/admin',[MainAdminController::class,'mainadmin'])->middleware('checkrole:Admin');
